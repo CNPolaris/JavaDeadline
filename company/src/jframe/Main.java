@@ -132,7 +132,7 @@ public class Main extends JFrame {
 		});
 	}
 
-	
+	//这是进入系统后的主界面
 	/**
 	 * Create the frame.
 	 */
@@ -184,46 +184,7 @@ public class Main extends JFrame {
 		lblNewLabel_2.setText("当前日期："+df.format(new Date()));
 		panel_1.add(lblNewLabel_2);
 		SimpleDateFormat df1 = new SimpleDateFormat("HH:mm:ss");
-		
-		/*JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 834, 23);
-		panel.add(menuBar);
-		
-		JMenu mnNewMenu = new JMenu("\u57FA\u672C\u4FE1\u606F\u7BA1\u7406");
-		mnNewMenu.setFont(new Font("微软雅黑", Font.PLAIN, 16));
-		menuBar.add(mnNewMenu);
-		mnNewMenu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-		});
-		
-		JMenu menu = new JMenu("\u5165\u5E93\u7BA1\u7406");
-		menu.setFont(new Font("微软雅黑", Font.PLAIN, 16));
-		menuBar.add(menu);
-		
-		JMenu menu_1 = new JMenu("\u9500\u552E\u7BA1\u7406");
-		menu_1.setFont(new Font("微软雅黑", Font.PLAIN, 16));
-		menuBar.add(menu_1);
-		
-		JMenu menu_2 = new JMenu("\u9000\u8D27\u7BA1\u7406");
-		menu_2.setFont(new Font("微软雅黑", Font.PLAIN, 16));
-		menuBar.add(menu_2);
-		
-		JMenu menu_3 = new JMenu("\u5E93\u5B58\u7BA1\u7406");
-		menu_3.setFont(new Font("微软雅黑", Font.PLAIN, 16));
-		menuBar.add(menu_3);
-		
-		JMenu menu_4 = new JMenu("\u7CFB\u7EDF\u7EF4\u62A4");
-		menu_4.setFont(new Font("微软雅黑", Font.PLAIN, 16));
-		menuBar.add(menu_4);
-		
-		JMenu menu_5 = new JMenu("\u5E2E\u52A9");
-		menu_5.setFont(new Font("微软雅黑", Font.PLAIN, 16));
-		menuBar.add(menu_5);
-		*/
-		
-		
+
 		
 		panel_4 = new JPanel();
 		panel_4.setBackground(new Color(255, 255, 255));
@@ -231,16 +192,6 @@ public class Main extends JFrame {
 		panel.add(panel_4);
 		panel_4.setLayout(null);
 		
-		/*JTextArea txtOut=new JTextArea();
-		txtOut.setBackground(new Color(255, 255, 255));
-		txtOut.setLineWrap(true);
-		//txtOut.setPreferredSize(new Dimension(x*19+30,y*3-25));//去掉这一句
-		JScrollPane scrollPaneOut=new JScrollPane(txtOut);
-		scrollPaneOut.setSize(300, 200);
-		scrollPaneOut.setLocation(100, 100);
-		//scrollPaneOut.setPreferredSize(new Dimension(100,50));//这里加一句
-		panel_4.add(scrollPaneOut);
-		*/
 		
 		JToolBar toolBar = new JToolBar();
 		toolBar.setBackground(new Color(230, 230, 250));
@@ -400,15 +351,11 @@ public class Main extends JFrame {
 	}
 	private void seteditable(boolean b) {
 		// TODO Auto-generated method stub
-		
 	}
 
 
 	public void initlei(){
 		leiset=new HashSet();
-		//String JDriver = "com.mysql.jdbc.Driver";  // MySQL提供的JDBC驱动，要保证它在CLASSPATH里可见
-
-        //String conURL = "jdbc:mysql://localhost/"+Test.database;  // 本地计算机上的MySQL数据库Company的URL
 		 String JDriver="com.microsoft.sqlserver.jdbc.SQLServerDriver";//驱动名
 		 String conURL="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=foodcompany";
         try {

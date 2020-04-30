@@ -48,11 +48,8 @@ public class Message_employee extends JPanel {
 	private JTextField modify_textField;
 	private JTable table;
 	
-	//String JDriver = "com.mysql.jdbc.Driver";  // MySQL提供的JDBC驱动，要保证它在CLASSPATH里可见
-
-    //String conURL = "jdbc:mysql://localhost/"+Test.database;  // 本地计算机上的MySQL数据库Company的URL
-	 String JDriver="com.microsoft.sqlserver.jdbc.SQLServerDriver";//驱动名
-	    String conURL="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=foodcompany";
+	String JDriver="com.microsoft.sqlserver.jdbc.SQLServerDriver";//驱动名
+	String conURL="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=foodcompany";
 	DefaultTableModel tableModel;
     Vector<Vector<String>> tableValueV;
     Vector<String> columnNameV;
@@ -379,17 +376,6 @@ public class Message_employee extends JPanel {
         catch(ClassNotFoundException cnf_e) {  // 如果找不到驱动类
             System.out.println("Driver Not Found: " + cnf_e);
         }
-	
-		/*JTextArea txtOut=new JTextArea();
-		txtOut.setBackground(new Color(255, 255, 255));
-		txtOut.setLineWrap(true);
-		//txtOut.setPreferredSize(new Dimension(x*19+30,y*3-25));//去掉这一句
-		JScrollPane scrollPaneOut=new JScrollPane(txtOut);
-		scrollPaneOut.setSize(438, 250);
-		scrollPaneOut.setLocation(110, 90);
-		//scrollPaneOut.setPreferredSize(new Dimension(100,50));//这里加一句
-		add(scrollPaneOut);
-		*/
         
 		
 		tableValueV = new Vector<Vector<String>>();

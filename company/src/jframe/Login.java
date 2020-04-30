@@ -1,7 +1,5 @@
 package jframe;
 
-import java.sql.*;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -24,30 +22,24 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
-
-
-
 import javax.swing.DropMode;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.JRadioButton;
-
 import company.Test;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
 public class Login extends JFrame {
 
-	/**
-	 * 
+	/*
+	 *登录界面设计 
 	 */
 	private static final long serialVersionUID = 1L;
 
 	private JPanel contentPane;
  
 	/**
-	 * Launch the application.
+	 * 运行
 	 */
 	int windowwidth=850;
 	int windowheight=680;
@@ -55,42 +47,6 @@ public class Login extends JFrame {
 	public static JPasswordField passwordField;
 	public static JButton denglu;
 	public static JComboBox limite;
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Login frame = new Login();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-*/
-	/**
-	 * Create the frame.
-	 */
-	/*public void paint(Graphics g) {
-		g.setColor(Color.red);
-        // 画线段
-        //g.drawLine(5, 5, 20, 100);
-        // 画点
-        //g.drawLine(20, 20, 20, 20);
-
-        // 画普通矩形框
-        //g.drawRect(30, 5, 100, 100);
-        // 填充普通矩形
-		
-        g.fillRect(140, 5, 100, 100);
-		Graphics2D g2d = (Graphics2D) g;// 获取2D绘图上下文    
-    	Composite composite = g2d.getComposite();// 备份合成模式   // 设置绘图使用透明合成规则  
-    	g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.1f));  
-    	g2d.fillRect(0, 0, 100, 100);// 使用当前颜色填充矩形空间   
-    	g2d.setComposite(composite);// // 恢复原有合成模式  
-    	//super.paintComponents(g2d);// 执行超类的组件绘制方法  }
-	}
-	*/
 	
 	public Login() {
 		
@@ -194,8 +150,6 @@ public class Login extends JFrame {
 		panel.add(lblNewLabel);
 		bluep.setIcon(prince);
 		panel.add(bluep);
-		
-		
-		
+			
 	}
 }

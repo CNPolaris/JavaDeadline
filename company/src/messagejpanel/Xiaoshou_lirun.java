@@ -36,9 +36,6 @@ public class Xiaoshou_lirun extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	//String JDriver = "com.mysql.jdbc.Driver";  // MySQL提供的JDBC驱动，要保证它在CLASSPATH里可见
-
-    //String conURL = "jdbc:mysql://localhost/"+Test.database;  // 本地计算机上的MySQL数据库Company的URL
 	 String JDriver="com.microsoft.sqlserver.jdbc.SQLServerDriver";//驱动名
 	    String conURL="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=foodcompany";
 	public Xiaoshou_lirun() {

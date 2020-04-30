@@ -71,27 +71,9 @@ public class Kucun_ruku extends JFrame {
 	public static JFrame frame;
 	public static JTextField jingshouren;
 	
-	//String JDriver = "com.mysql.jdbc.Driver";  // MySQL提供的JDBC驱动，要保证它在CLASSPATH里可见
-
-    //String conURL = "jdbc:mysql://localhost/"+Test.database;  // 本地计算机上的MySQL数据库Company的URL
 	 String JDriver="com.microsoft.sqlserver.jdbc.SQLServerDriver";//驱动名
-	    String conURL="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=foodcompany";
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Ruku frame = new Ruku();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-*/
+	 String conURL="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=foodcompany";
+
 	/**
 	 * Create the frame.
 	 */
@@ -193,7 +175,6 @@ public class Kucun_ruku extends JFrame {
 		gbc_label.gridx = 0;
 		gbc_label.gridy = 1;
 		panel.add(label, gbc_label);
-		//jingshouren.setModel(new DefaultComboBoxModel(new String[] {"\u5F20\u7ECF\u7406", "\u9648\u7ECF\u7406"}));
 		String [] s=new String[100];
 		
 		jingshouren = new JTextField();
@@ -212,12 +193,6 @@ public class Kucun_ruku extends JFrame {
 		gbc_lblNewLabel_4.gridx = 2;
 		gbc_lblNewLabel_4.gridy = 1;
 		panel.add(lblNewLabel_4, gbc_lblNewLabel_4);
-		/*ImageIcon add = new ImageIcon(Toolkit.getDefaultToolkit().getImage(Ruku.class.getResource("/picture/4.png")));
-		add.getImage();
-		Image img1 = add.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT);
-		add=new ImageIcon(img1);
-		lblNewLabel_4.setIcon(add);
-		*/
 		
 		JLabel label_2 = new JLabel("\u64CD\u4F5C\u5458\uFF1A");
 		GridBagConstraints gbc_label_2 = new GridBagConstraints();
@@ -321,8 +296,7 @@ public class Kucun_ruku extends JFrame {
 		gbc_fenlei.gridx = 1;
 		gbc_fenlei.gridy = 0;
 		panel_2.add(fenlei, gbc_fenlei);
-		//fenlei.setModel(new DefaultComboBoxModel(new String[] {"\u997C\u5E72\u7C7B", "\u85AF\u7247\u7C7B", "\u9999\u80A0\u7C7B", "\u5DE7\u514B\u529B", "\u5176\u4ED6"}));
-		//fenlei.setEditable(true);
+
 		Iterator it=Main.leiset.iterator();
 		while(it.hasNext()){
 			String s1=it.next().toString();
@@ -336,7 +310,6 @@ public class Kucun_ruku extends JFrame {
 		gbc_name.gridx = 4;
 		gbc_name.gridy = 0;
 		panel_2.add(name, gbc_name);
-		//name.setEditable(true);
 		if(!Main.leiset.isEmpty()){
 			String start=fenlei.getItemAt(0).toString();
 			try {//插入
@@ -500,17 +473,6 @@ public class Kucun_ruku extends JFrame {
 					flag=true;
 					Kucun_ruku.num1.setIcon(wrong);
 				}
-				/*SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式k
-				try {
-					Date time= df.parse(df.format(new Date()));
-				} catch (ParseException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				*/
-				 //String JDriver = "com.mysql.jdbc.Driver";  // MySQL提供的JDBC驱动，要保证它在CLASSPATH里可见
-
-			       // String conURL = "jdbc:mysql://localhost/"+Test.database;  // 本地计算机上的MySQL数据库Company的URL
 				 String JDriver="com.microsoft.sqlserver.jdbc.SQLServerDriver";//驱动名
 				    String conURL="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=foodcompany";
 			        try {

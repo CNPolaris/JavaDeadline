@@ -103,8 +103,7 @@ private JTable table;
 			columnNameV.add(columnNames[column]);
 		}
     	tableValueV = new Vector<Vector<String>>();
-    	
-    	//String JDriver = "com.mysql.jdbc.Driver";  // MySQL提供的JDBC驱动，要保证它在CLASSPATH里可见
+    	//连接数据库的操作，其实应该单独写一个DBUtil类来存放对于数据库的操作，但是先凑合着写吧
     	String JDriver ="com.mysql.cj.jdbc.Driver";
         String conURL = "jdbc:mysql://localhost/"+Test.database;  // 本地计算机上的MySQL数据库Company的URL
         try {
@@ -198,9 +197,7 @@ private JTable table;
 		button.addActionListener(new ActionListener(){
 			
 			public void actionPerformed(ActionEvent arg0) {
-				//String JDriver = "com.mysql.cj.jdbc.Driver";  // MySQL提供的JDBC驱动，要保证它在CLASSPATH里可见
 				String JDriver="com.microsoft.sqlserver.jdbc.SQLServerDriver";//驱动名
-		        //String conURL = "jdbc:mysql://localhost/"+Test.database;  // 本地计算机上的MySQL数据库Company的URL
 				String conURL="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=foodcompany";
 		        String a=add_name.getText(),b=add_password.getText(),c=add_comboBox.getSelectedItem().toString();
 		       
@@ -212,11 +209,13 @@ private JTable table;
 		            Statement s = con.createStatement();  // Statement类用来提交SQL语句
 		            Statement s1 = con.createStatement();  // Statement类用来提交SQL语句
 		            
-	
+		            //查询用户的存在情况，根据情况来决定下一步的操作
 		            ResultSet rs = s.executeQuery("select * from users");  // 提交查询，返回的表格保存在rs中
 
 		            while(rs.next()) {  // ResultSet指针指向下一个“行”
-		               if(a.equals(rs.getString("name"))){flag=true;break;}
+		               if(a.equals(rs.getString("name"))){
+		            	   flag=true;break;
+		            	   }
 		            }
 		            
 		            if(flag){
@@ -246,14 +245,11 @@ private JTable table;
 			    		  
 			    		  Statement s2 = con.createStatement();  // Statement类用来提交SQL语句
 			    		  SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-			        		//System.out.println("insert into news(time,news,limit) values('"+df.format(new Date())+"','"+Name+"登入系统"+"','"+limite+"')");
 			        		String insert1 = "insert into news(time,news,limite) values('"+df.format(new Date())+"','"+Testmysql.limite+Testmysql.Name+"添加"+c+"用户："+a+"','"+Testmysql.limite+"')";  
 			        		s2.executeUpdate(insert1);
 			        			
 			                  s2.close();     // 释放Statement对象
-		            }
-					
-					
+		            }										
 		            s.close();     // 释放Statement对象
 		            con.close();   // 关闭到MySQL服务器的连接
 		        }
@@ -296,9 +292,7 @@ private JTable table;
 		modify_comboBox.setBounds(90, 86, 119, 21);
 		panel1.add(modify_comboBox);
 		
-table.addMouseListener(new MouseListener(){
-
-			
+		table.addMouseListener(new MouseListener(){
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				// TODO Auto-generated method stub
@@ -366,12 +360,10 @@ table.addMouseListener(new MouseListener(){
 				    if(selectedRow!= -1)   //是否存在选中行
 				    {
 				     //修改指定的值：
-				    	
 				    String a=tableModel.getValueAt(selectedRow, 0).toString();
 				    String b=tableModel.getValueAt(selectedRow, 1).toString();
 				    String c=tableModel.getValueAt(selectedRow, 2).toString();
-
-				     
+				 
 				        try {
 				            Connection con = DriverManager.getConnection(conURL, Test.mysqlname, Test.mysqlpassword);  // 连接数据库
 
@@ -381,7 +373,7 @@ table.addMouseListener(new MouseListener(){
 				            ResultSet rs = s.executeQuery("select * from users");  // 提交查询，返回的表格保存在rs中
 
 				            boolean flag=false;
-				            while(rs.next()) {  // ResultSet指针指向下一个“行”
+				            while(rs.next()) {  // ResultSet指针指向下一个“行”，这是用来检查查询结果是否存在的一种办法
 				               if(modify_name.getText().equals(rs.getString("name"))){flag=true;break;}
 				            }
 				            System.out.println(flag);
@@ -389,8 +381,7 @@ table.addMouseListener(new MouseListener(){
 				            	if(!modify_name.getText().equals(a)){JOptionPane.showMessageDialog(Test.zhu, "该用户已存在","错误",2);}
 				            	else flag=false;
 				            }
-				            if(!flag){
-				            	
+				            if(!flag){				            	
 				            	tableModel.setValueAt(modify_name.getText(), selectedRow, 0);
 							     tableModel.setValueAt(modify_password.getText(), selectedRow, 1);
 							     tableModel.setValueAt(modify_comboBox.getSelectedItem().toString(), selectedRow, 2);
@@ -399,7 +390,6 @@ table.addMouseListener(new MouseListener(){
 
 							     System.out.println(a+"  "+b);
 						            while(rs1.next()) {  // ResultSet指针指向下一个“行”
-						            	//System.out.println(rs1.getString("name")+"  "+rs1.getString("password")+"  "+modify_name.getText()+"   "+modify_password.getText()+rs1.getString("limite")+"  "+modify_comboBox.getSelectedItem().toString());
 						               if(rs1.getString("name").equals(a)&&rs1.getString("password").equals(b)&&rs1.getString("limite").equals(c)){
 						            	   rs1.updateString("name", modify_name.getText());
 						            	   rs1.updateString("password", modify_password.getText());
@@ -408,13 +398,10 @@ table.addMouseListener(new MouseListener(){
 						            	   break;
 						               }
 						               
-						            }
-							     
-				            }
-				            
+						            }							     
+				            }				         
 				            Statement s2 = con.createStatement();  // Statement类用来提交SQL语句
 				    		  SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-				        		//System.out.println("insert into news(time,news,limit) values('"+df.format(new Date())+"','"+Name+"登入系统"+"','"+limite+"')");
 				        		String insert1 = "insert into news(time,news,limite) values('"+df.format(new Date())+"','"+Testmysql.limite+Testmysql.Name+"修改"+c+"用户："+a+"','"+Testmysql.limite+"')";  
 				        		s2.executeUpdate(insert1);
 				        			
@@ -427,14 +414,10 @@ table.addMouseListener(new MouseListener(){
 				        catch(SQLException sql_e) {     // 都是SQLException
 				            System.out.println(sql_e);
 				        }
-				     //table.setValueAt(arg0, arg1, arg2)
 				    }
 				    
 			}
 		});
-		
-		//table.setBounds(0, 0, 438, 250);
-		//add(table);
 		TableColumnModel   cm   =   table.getColumnModel(); 
 		for(int i=0;i<3;i++){
 			TableColumn   column  = cm.getColumn(i);//得到第i个列对象   
@@ -442,10 +425,8 @@ table.addMouseListener(new MouseListener(){
 		}
 		  DefaultTableCellRenderer   r   =   new   DefaultTableCellRenderer();    
 		  r.setHorizontalAlignment(JLabel.CENTER);
-		  table.setDefaultRenderer(Object.class, r);
-		  
-		  
-		  
+		  table.setDefaultRenderer(Object.class, r);		  
+		  		  
 		  JButton btnNewButton = new JButton("\u5220\u9664");
 			btnNewButton.setBounds(110, 297, 93, 23);
 			contentPane.add(btnNewButton);
@@ -472,77 +453,5 @@ table.addMouseListener(new MouseListener(){
 			btnNewButton_2.setBounds(440, 297, 93, 23);
 			contentPane.add(btnNewButton_2);
 		
-		/*JLabel lblNewLabel = new JLabel("\u7528\u6237\u540D\uFF1A");
-		lblNewLabel.setFont(new Font("宋体", Font.PLAIN, 15));
-		lblNewLabel.setBounds(81, 81, 77, 23);
-		contentPane.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("\u5BC6\u7801\uFF1A");
-		lblNewLabel_1.setFont(new Font("宋体", Font.PLAIN, 15));
-		lblNewLabel_1.setBounds(91, 129, 54, 23);
-		contentPane.add(lblNewLabel_1);
-		
-		name = new JTextField();
-		name.setBounds(156, 82, 152, 21);
-		contentPane.add(name);
-		name.setColumns(10);
-		
-		password = new JTextField();
-		password.setBounds(155, 130, 152, 21);
-		contentPane.add(password);
-		password.setColumns(10);
-		
-		JButton btnNewButton = new JButton("\u786E\u5B9A");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				String JDriver = "com.mysql.jdbc.Driver";  // MySQL提供的JDBC驱动，要保证它在CLASSPATH里可见
-
-		        String conURL = "jdbc:mysql://localhost/Company";  // 本地计算机上的MySQL数据库Company的URL
-
-		        String a=name.getText(),b=password.getText();
-		        try {
-		            Class.forName(JDriver);
-		        }
-		        catch(ClassNotFoundException cnf_e) {  // 如果找不到驱动类
-		            System.out.println("Driver Not Found: " + cnf_e);
-		        }
-
-		        boolean flag=false;
-		        try {
-		            Connection con = DriverManager.getConnection(conURL, "root", "");  // 连接数据库
-
-		            Statement s = con.createStatement();  // Statement类用来提交SQL语句
-		            Statement s1 = con.createStatement();  // Statement类用来提交SQL语句
-	
-		            ResultSet rs = s.executeQuery("select * from user");  // 提交查询，返回的表格保存在rs中
-
-		            while(rs.next()) {  // ResultSet指针指向下一个“行”
-		               if(a.equals(rs.getString("name"))){flag=true;break;}
-		            }
-		            
-		            if(flag){
-		            	JOptionPane.showMessageDialog(Test.frame, "该用户已存在","错误",2);
-		            }
-		            else{
-		            	JOptionPane.showMessageDialog(Test.frame, a+"添加成功","用户添加成功",1);
-		            	String insert = "insert into user(name,password) values('"+a+"','"+b+"')";  
-						s1.executeUpdate(insert);
-		            }
-					
-					
-		            s.close();     // 释放Statement对象
-		            con.close();   // 关闭到MySQL服务器的连接
-		        }
-		        catch(SQLException sql_e) {     // 都是SQLException
-		            System.out.println(sql_e);
-		        }
-			}
-		});
-		btnNewButton.setBounds(81, 187, 93, 23);
-		contentPane.add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("\u91CD\u7F6E");
-		btnNewButton_1.setBounds(223, 187, 93, 23);
-		contentPane.add(btnNewButton_1);*/
 	}
 }

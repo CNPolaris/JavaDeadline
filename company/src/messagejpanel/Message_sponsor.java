@@ -57,9 +57,6 @@ public class Message_sponsor extends JPanel {
 			private JTextField search_textField;
 			private JTextField search_textField_1;
 			private JTextField search_textField_2;
-			//String JDriver = "com.mysql.jdbc.Driver";  // MySQL提供的JDBC驱动，要保证它在CLASSPATH里可见
-
-	        //String conURL = "jdbc:mysql://localhost/"+Test.database;  // 本地计算机上的MySQL数据库Company的URL
 			 String JDriver="com.microsoft.sqlserver.jdbc.SQLServerDriver";//驱动名
 			    String conURL="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=foodcompany";
 			DefaultTableModel tableModel;
@@ -201,17 +198,6 @@ public class Message_sponsor extends JPanel {
 		            System.out.println("Driver Not Found: " + cnf_e);
 		        }
 			
-				/*JTextArea txtOut=new JTextArea();
-				txtOut.setBackground(new Color(255, 255, 255));
-				txtOut.setLineWrap(true);
-				//txtOut.setPreferredSize(new Dimension(x*19+30,y*3-25));//去掉这一句
-				JScrollPane scrollPaneOut=new JScrollPane(txtOut);
-				scrollPaneOut.setSize(438, 250);
-				scrollPaneOut.setLocation(110, 90);
-				//scrollPaneOut.setPreferredSize(new Dimension(100,50));//这里加一句
-				add(scrollPaneOut);
-				*/
-		        
 				
 				
 				

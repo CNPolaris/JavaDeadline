@@ -52,10 +52,7 @@ public class Kucun_chuku extends JPanel {
 	public static JButton chuku;
 	private JTextField jingshouren;
 	private JTextField textField_2;
-	
-	//String JDriver = "com.mysql.jdbc.Driver";  // MySQL提供的JDBC驱动，要保证它在CLASSPATH里可见
 
-    //String conURL = "jdbc:mysql://localhost/"+Test.database;  // 本地计算机上的MySQL数据库Company的URL
 	String JDriver="com.microsoft.sqlserver.jdbc.SQLServerDriver";//驱动名
 	String conURL="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=foodcompany";
 	public Kucun_chuku() {
@@ -255,7 +252,7 @@ public class Kucun_chuku extends JPanel {
 		gbc_name.gridx = 4;
 		gbc_name.gridy = 0;
 		panel_2.add(name, gbc_name);
-		//name.setModel(new DefaultComboBoxModel(new String[] {"\u66F2\u5947\u997C\u5E72", "\u5C0F\u718A\u997C\u5E72"}));
+
 		if(!Main.leiset.isEmpty()){
 			String start_lei=fenlei.getItemAt(0).toString();
 			try {//插入
