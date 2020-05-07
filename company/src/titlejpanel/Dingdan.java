@@ -67,7 +67,7 @@ public class Dingdan extends JPanel {
 		gbc_label_2.gridy = 2;
 		panel.add(label_3, gbc_label_2);
 		label_3.addMouseListener( new Mouselistener(label_3));
-		
+	
 		label_4 = new JLabel("  \u8BA2\u5355\u67E5\u8BE2");
 		label_4.setFont(new Font("ËÎÌו", Font.PLAIN, 15));
 		GridBagConstraints gbc_label_3 = new GridBagConstraints();

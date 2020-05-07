@@ -35,9 +35,9 @@ public class Testmysql {
 	        java.sql.Connection con1 = DriverManager.getConnection(conURL, Test.mysqlname, Test.mysqlpassword);  // 连接数据库
 	        Statement s = (Statement) con.createStatement();  // Statement类用来提交SQL语句
 	        Statement s1 = (Statement) con1.createStatement();  // Statement类用来提交SQL语句
-
 	        ResultSet rs = s.executeQuery("select * from users ");  // 提交查询，返回的表格保存在rs中
 	        boolean flag=false;
+	        //查询结果存在，并且密码正确
 	        while(rs.next()) {  // ResultSet指针指向下一个“行”
 	        	if(rs.getString("name").equals(Name) && rs.getString("password").equals(s2)&&rs.getString("limite").equals(s3)){
 	        		flag=true;
@@ -53,6 +53,7 @@ public class Testmysql {
 	        		break;
 	        	}
 	        }
+	        //用户不存在或者是密码不正确
 	        if(!flag){
 	        	JOptionPane.showMessageDialog(Test.frame, Name+s2+"用户名或密码错误！请重新输入","错误",2);
 	        	Login.yonghu.setText("");

@@ -50,9 +50,9 @@ public class Test implements ActionListener{
 		{
 			new Testmysql();
 		}
-		if(e1.getSource()==Kucun_ruku.ruku){
+		/*if(e1.getSource()==Kucun_ruku.ruku){
 			//连接数据库ruku；
-		}
+		}*/
 	}
 
 }
