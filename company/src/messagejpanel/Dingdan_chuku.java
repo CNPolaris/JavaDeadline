@@ -77,8 +77,7 @@ public class Dingdan_chuku extends JPanel {
             System.out.println(sql_e);
         }
 		
-		tableModel = new DefaultTableModel(tableValueV,
-				columnNameV);
+		tableModel = new DefaultTableModel(tableValueV,columnNameV);
 		table = new JTable(tableModel);
 		table.setRowSorter(new TableRowSorter<DefaultTableModel>(tableModel));
 		scrollPane1.setViewportView(table);

@@ -53,7 +53,8 @@ public class Dingdan_chaxun extends JPanel {
 	Vector<Vector<String>> tableValueV;
 	Vector<String> columnNameV;
 	String JDriver="com.microsoft.sqlserver.jdbc.SQLServerDriver";//驱动名
-	String conURL="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=foodcompany";
+	String conURL="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=foodcompany";//数据库url地址
+	//订单查询，界面以及功能设计
 	public Dingdan_chaxun() {
 		setBackground(Color.WHITE);
 		setBounds(197, 0, 637, 570);
@@ -168,9 +169,9 @@ public class Dingdan_chaxun extends JPanel {
 		  r.setHorizontalAlignment(JLabel.CENTER);
 		  table.setDefaultRenderer(Object.class, r);
 	}
-	
+	//获取商品查询信息
 	public void getmessage(){
-		
+		//先清除已经有的信息
 		table.removeAll();
 		tableValueV.removeAllElements();
 		
@@ -179,7 +180,7 @@ public class Dingdan_chaxun extends JPanel {
 		String c=fangshi.getSelectedItem().toString();
 		String d=message.getText();
 		String db,ch1="=",ch2="",select = "";
-		
+		//根据选择，打开不同的数据库，进行不同的查询操作
 		if(a.equals("入库订单")) db="kucun";
 		else db="chuku";
 		

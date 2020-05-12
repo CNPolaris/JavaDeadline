@@ -242,7 +242,7 @@ public class Kucun_chuku extends JPanel {
 		while(it.hasNext()){
 			String s=it.next().toString();
 			fenlei.addItem(s);
-			//Chuku.
+	
 		}
 		
 		name = new JComboBox();
@@ -438,14 +438,14 @@ public class Kucun_chuku extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				
-				String a= fenlei.getSelectedItem().toString();
-				String b=name.getSelectedItem().toString();
-				String c=num.getText();
-				String d=price.getText();
-				String e=time.getText();
-				String f=chukudanhao.getText();
-				String g=jingshouren.getText();
-				String h=operator.getText();
+				String a= fenlei.getSelectedItem().toString();//获取分类名成
+				String b=name.getSelectedItem().toString();//获取食品名称
+				String c=num.getText();//商品数量
+				String d=price.getText();//商品价格
+				String e=time.getText();//有效期
+				String f=chukudanhao.getText();//出库单号;
+				String g=jingshouren.getText();//经手人
+				String h=operator.getText();//合计
 				int sum=Integer.parseInt(c)*Integer.parseInt(d);
 				SimpleDateFormat df1 = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
 				SimpleDateFormat df2 = new SimpleDateFormat("yyyy-MM");//设置日期格式

@@ -31,8 +31,8 @@ public class Dingdan_ruku extends JPanel {
 	Vector<Vector<String>> tableValueV;
 	Vector<String> columnNameV;
 	
-	 String JDriver="com.microsoft.sqlserver.jdbc.SQLServerDriver";//驱动名
-	    String conURL="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=foodcompany";
+	String JDriver="com.microsoft.sqlserver.jdbc.SQLServerDriver";//驱动名
+	String conURL="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=foodcompany";
 	public Dingdan_ruku() {
 		setBackground(Color.WHITE);
 		setBounds(197, 0, 637, 570);

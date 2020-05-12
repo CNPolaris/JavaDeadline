@@ -42,15 +42,12 @@ import company.Testmysql;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.sql.*;
+//管理功能
 public class Control extends JFrame {
-
-	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
 	
-private JTable table;
+	private JPanel contentPane;
+	
+	private JTable table;
 	
 	DefaultTableModel tableModel;
 	Vector<Vector<String>> tableValueV;
@@ -93,7 +90,7 @@ private JTable table;
     	int screenHeight = (int)Toolkit.getDefaultToolkit().getScreenSize().height;
     	setLocation((screenWidth-windowwidth)/2,(screenHeight-windowheight)/2);
     	
-    	
+    	//创建显示数据的jtable
     	table = new JTable();
 		table.setBounds(0, 0, 438, 250);
 		JScrollPane scrollPane1=new JScrollPane();
@@ -116,9 +113,9 @@ private JTable table;
             Connection con = DriverManager.getConnection(conURL, Test.mysqlname, Test.mysqlpassword);  // 连接数据库
 
             Statement s = con.createStatement();  // Statement类用来提交SQL语句
-
-            ResultSet rs = s.executeQuery("select * from users;");  // 提交查询，返回的表格保存在rs中
-
+             // 提交查询，返回的表格保存在rs中
+            ResultSet rs = s.executeQuery("select * from users;"); 
+            //把用户名，密码，权限都获取出来
             while(rs.next()) {  // ResultSet指针指向下一个“行”
             		Vector<String> rowV = new Vector<String>();
         			rowV.add(rs.getString("name"));
@@ -135,22 +132,20 @@ private JTable table;
         }
 		
 	
-		
-		tableModel = new DefaultTableModel(tableValueV,
-				columnNameV);
+		//进行界面设计
+		tableModel = new DefaultTableModel(tableValueV,columnNameV);
 		final JTable table = new JTable(tableModel);
 		table.setRowSorter(new TableRowSorter<DefaultTableModel>(tableModel));
 		scrollPane1.setViewportView(table);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		TableColumnModel tableColumnModel = table.getColumnModel();
-		ListSelectionModel listSelectionModel = tableColumnModel
-				.getSelectionModel();
+		ListSelectionModel listSelectionModel = tableColumnModel.getSelectionModel();
 		getContentPane().add(scrollPane1);
 		scrollPane1.setBounds(110, 27, 438, 250);
 		
 		
-		
+		//主体部分
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
 		panel.setBounds(154, 347, 337, 120);

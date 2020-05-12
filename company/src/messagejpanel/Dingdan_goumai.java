@@ -37,7 +37,7 @@ public class Dingdan_goumai extends JPanel {
 	JTable table;
 	
 	 String JDriver="com.microsoft.sqlserver.jdbc.SQLServerDriver";//驱动名
-	 String conURL="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=foodcompany";
+	 String conURL="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=foodcompany";//数据库url
 	public Dingdan_goumai() {
 		setBackground(Color.WHITE);
 		setBounds(197, 0, 637, 570);
