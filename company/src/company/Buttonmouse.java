@@ -1,12 +1,9 @@
 package company;
-import java.sql.*;
-import java.awt.Color;
-import java.awt.Cursor;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
-import javax.swing.JButton;
-import javax.swing.UIManager;
 
 public class Buttonmouse implements MouseListener{
 

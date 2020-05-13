@@ -1,27 +1,11 @@
 package company;
-import java.sql.*;
-import java.awt.AlphaComposite;
-import java.awt.Color;
-import java.awt.Composite;
-import java.awt.EventQueue;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-
-import messagejpanel.Kucun_ruku;
 import jframe.Login;
 import jframe.Main;
-import company.Testmysql;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Test implements ActionListener{
 	public static Login frame;

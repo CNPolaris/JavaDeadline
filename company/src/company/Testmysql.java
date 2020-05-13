@@ -1,17 +1,15 @@
 package company;
-import java.sql.*;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import javax.swing.JOptionPane;
 
 import jframe.Login;
 import jframe.Main;
 
-import company.Test;
+import javax.swing.*;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Testmysql {
 	public static String Name;
