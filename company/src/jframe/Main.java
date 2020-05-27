@@ -317,7 +317,7 @@ public class Main extends JFrame {
 		
 		lblNewLabel_3= new JLabel("");
 		lblNewLabel_3.setBounds(0, 0, 834, 572);
-		ImageIcon prince = new ImageIcon(Toolkit.getDefaultToolkit().getImage(Main.class.getResource("/picture/5.jpg")));
+		ImageIcon prince = new ImageIcon(Toolkit.getDefaultToolkit().getImage(Main.class.getResource("/picture/2.2.jpg")));
 	    prince.getImage();
 		Image img = prince.getImage().getScaledInstance(lblNewLabel_3.getWidth(), lblNewLabel_3.getHeight(), Image.SCALE_DEFAULT);
 		prince=new ImageIcon(img);

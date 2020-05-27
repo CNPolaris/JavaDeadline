@@ -66,7 +66,7 @@ public class Login extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.BLACK);
-		panel.setBounds(0, 0, 834, 642);
+		panel.setBounds(0, 0, 844, 652);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -74,49 +74,49 @@ public class Login extends JFrame {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 255, 255));
-		panel_1.setBounds(217, 229, 454, 241);
+		panel_1.setBounds(200, 200, 454, 241);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
 		limite = new JComboBox();
 		limite.setToolTipText("");
 		limite.setModel(new DefaultComboBoxModel(new String[] {"\u7BA1\u7406\u5458", "\u5458\u5DE5"}));
-		limite.setBounds(157, 22, 93, 29);
+		limite.setBounds(177, 22, 93, 29);
 		panel_1.add(limite);
 		
 		
 		JLabel label = new JLabel("\u7528\u6237\u540D\uFF1A");
-		label.setBounds(81, 71, 72, 21);
+		label.setBounds(101, 71, 72, 21);
 		panel_1.add(label);
 		label.setFont(new Font("宋体", Font.PLAIN, 18));
 		
 		JLabel label_1 = new JLabel("\u5BC6\u7801\uFF1A");
-		label_1.setBounds(95, 120, 54, 21);
+		label_1.setBounds(115, 120, 54, 21);
 		panel_1.add(label_1);
 		label_1.setFont(new Font("宋体", Font.PLAIN, 18));
 		
 		yonghu = new JTextField();
-		yonghu.setBounds(159, 73, 144, 21);
+		yonghu.setBounds(179, 73, 144, 21);
 		panel_1.add(yonghu);
 		yonghu.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(159, 122, 144, 21);
+		passwordField.setBounds(179, 122, 144, 21);
 		panel_1.add(passwordField);
 		passwordField.setDropMode(DropMode.INSERT);
 		passwordField.setToolTipText("\u8BF7\u8F93\u5165\u5BC6\u7801");
 		
 		JLabel log = new JLabel("New label");
-		log.setBounds(0, 0, 455, 241);
-		ImageIcon ico = new ImageIcon(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/picture/4.jpg")));
+		log.setBounds(0, 0, 455, 253);
+		ImageIcon ico = new ImageIcon(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/picture/3.1.jpg")));
 	    ico.getImage();
 		Image img2 = ico.getImage().getScaledInstance(log.getWidth(), log.getHeight(), Image.SCALE_DEFAULT);
 		ico=new ImageIcon(img2);
 		
 		denglu = new JButton("\u767B\u9646");
 		denglu.addActionListener(new Test());
-		denglu.setFont(new Font("宋体", Font.PLAIN, 18));
-		denglu.setBounds(77, 184, 93, 29);
+		denglu.setFont(new Font("宋体", Font.PLAIN, 15));
+		denglu.setBounds(97, 184, 83, 24);
 		panel_1.add(denglu);
 		
 		JButton chongzhi = new JButton("\u91CD\u7F6E");
@@ -126,8 +126,8 @@ public class Login extends JFrame {
 				passwordField.setText("");
 			}
 		});
-		chongzhi.setFont(new Font("宋体", Font.PLAIN, 18));
-		chongzhi.setBounds(235, 184, 93, 29);
+		chongzhi.setFont(new Font("宋体", Font.PLAIN, 15));
+		chongzhi.setBounds(255, 184, 83, 24);
 		panel_1.add(chongzhi);
 		log.setIcon(ico);
 		panel_1.add(log);
@@ -136,17 +136,17 @@ public class Login extends JFrame {
 		
 		JLabel bluep = new JLabel("");
 		bluep.setForeground(new Color(0, 0, 128));
-		bluep.setBounds(0, 0, 834, 642);
-		ImageIcon prince = new ImageIcon(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/picture/3.jpg")));
+		bluep.setBounds(0, 0, 844, 652);
+		ImageIcon prince = new ImageIcon(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/picture/4.1.jpg")));
 	    prince.getImage();
 		Image img1 = prince.getImage().getScaledInstance(bluep.getWidth(), bluep.getHeight(), Image.SCALE_DEFAULT);
 		prince=new ImageIcon(img1);
 		
 		JLabel lblNewLabel = new JLabel("\u98DF\u54C1\u516C\u53F8\u7BA1\u7406\u7CFB\u7EDF");
 		lblNewLabel.setBackground(new Color(0, 206, 209));
-		lblNewLabel.setFont(new Font("华文彩云", Font.BOLD, 58));
+		lblNewLabel.setFont(new Font("楷体", Font.BOLD, 58));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBounds(203, 113, 515, 74);
+		lblNewLabel.setBounds(180, 95, 515, 74);
 		panel.add(lblNewLabel);
 		bluep.setIcon(prince);
 		panel.add(bluep);
