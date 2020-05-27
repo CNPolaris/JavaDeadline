@@ -118,8 +118,9 @@ public class Message_sponsor extends JPanel {
 				label_2.setFont(new Font("宋体", Font.PLAIN, 15));
 				label_2.setBounds(19, 52, 107, 30);
 				panel.add(label_2);
-				
-				JComboBox add_comboBox = new JComboBox();
+
+				String []spoirlist=new String []{"伙伴型供应商","优先性供应商","重点型供应商","商业型供应商"};//供应商类别
+				JComboBox<String> add_comboBox = new JComboBox<String>(spoirlist);
 				add_comboBox.setBounds(141, 27, 149, 21);
 				panel.add(add_comboBox);
 
@@ -142,8 +143,7 @@ public class Message_sponsor extends JPanel {
 					columnNameV.add(columnNames[column]);
 				}
 				
-				
-				JComboBox modify_comboBox_1 = new JComboBox();
+				JComboBox <String>modify_comboBox_1 = new JComboBox<String>(spoirlist);
 				modify_comboBox_1.setBounds(141, 27, 149, 21);
 				panel1.add(modify_comboBox_1);
 				modify_comboBox_1.setEditable(false);

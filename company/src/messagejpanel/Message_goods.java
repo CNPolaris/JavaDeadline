@@ -97,8 +97,9 @@ public class Message_goods extends JPanel {
 		label_2.setFont(new Font("宋体", Font.PLAIN, 15));
 		label_2.setBounds(19, 52, 80, 30);
 		panel.add(label_2);
-		
-		JComboBox comboBox = new JComboBox();
+
+		String [] modify_list=new String[]{"酒饮类","果蔬饮料","乳制品类","畜产品类","糖果饼干","季节零食"};
+		JComboBox <String>comboBox = new JComboBox<String>(modify_list);
 		comboBox.setBounds(109, 27, 149, 21);
 		panel.add(comboBox);
 		comboBox.setEditable(true);
